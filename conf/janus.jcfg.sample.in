@@ -131,31 +131,6 @@ general: {
 		# commented, no folder is protected.
 		# Notice that at the moment this only covers attempts to start
 		# an .mjr recording and pcap/text2pcap packet captures.
-	protected_folders = [
-		"/bin",
-		"/boot",
-		"/dev",
-		"/etc",
-		"/initrd",
-		"/lib",
-		"/lib32",
-		"/lib64",
-		"/proc",
-		"/sbin",
-		"/sys",
-		"/var",
-			# We add what are usually the folders Janus is installed to
-			# as well: we don't just put "/opt/janus" because that would
-			# include folders like "/opt/janus/share" that is where
-			# recordings might be saved to by some plugins
-		"/opt/janus/bin",
-		"/opt/janus/etc",
-		"/opt/janus/include",
-		"/opt/janus/lib",
-		"/opt/janus/lib32",
-		"/opt/janus/lib64",
-		"/opt/janus/sbin"
-	]
 }
 
 # Certificate and key to use for DTLS (and passphrase if needed). If missing,
