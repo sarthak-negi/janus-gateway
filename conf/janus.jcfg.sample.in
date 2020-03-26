@@ -143,7 +143,6 @@ general: {
 		"/proc",
 		"/sbin",
 		"/sys",
-		"/usr",
 		"/var",
 			# We add what are usually the folders Janus is installed to
 			# as well: we don't just put "/opt/janus" because that would
