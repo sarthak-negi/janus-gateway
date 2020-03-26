@@ -190,27 +190,11 @@ janus_recorder *janus_recorder_create(const char *dir, const char *codec, const 
 	}
 	/* Try opening the file now */
 	if(rec_dir == NULL) {
-		/* Make sure folder to save to is not protected */
-		if(janus_is_folder_protected(newname)) {
-			JANUS_LOG(LOG_ERR, "Target recording path '%s' is in protected folder...\n", newname);
-			janus_recorder_destroy(rc);
-			g_free(copy_for_parent);
-			g_free(copy_for_base);
-			return NULL;
-		}
 		rc->file = fopen(newname, "wb");
 	} else {
 		char path[1024];
 		memset(path, 0, 1024);
 		g_snprintf(path, 1024, "%s/%s", rec_dir, newname);
-		/* Make sure folder to save to is not protected */
-		if(janus_is_folder_protected(path)) {
-			JANUS_LOG(LOG_ERR, "Target recording path '%s' is in protected folder...\n", path);
-			janus_recorder_destroy(rc);
-			g_free(copy_for_parent);
-			g_free(copy_for_base);
-			return NULL;
-		}
 		rc->file = fopen(path, "wb");
 	}
 	if(rc->file == NULL) {
